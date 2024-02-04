@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Formulario</title>
+    <link
+      href="static/favicon-16x16.png"
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link
+      href="static/favicon-32x32.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <style type="text/css">
+      body {
+                  background-image: url('static/formulario.png');
+                  background-repeat: no-repeat;
+                  background-attachment: fixed;
+                  background-position: center;
+                  background-size: 100% 100%;
+              }
+
+
+
+              .robot-animation-container {
+                  position: absolute;
+                  top: 450px;
+                  left: 460px;
+                  transform: translate(-30%, -30%);
+                  width: 500px;
+                  height: 500px;
+              }
+
+              .robot-base {
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  background-image: url('static/robot_base.png');
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  z-index: -1;
+              }
+
+              .robot-arm {
+                  position: absolute;
+                  bottom: 74%;
+                  left: 57%;
+                  transform: translate(-50%, 50%) scale(1) rotate(-20deg);
+                  transform-origin: left bottom;
+                  width: 44%;
+                  height: 44%;
+                  background-image: url('static/robot_brazo.png');
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  animation: swing-arm 3s infinite;
+                  z-index: 2;
+              }
+
+              @keyframes swing-arm {
+                  0%, 100% { transform: rotate(-15deg); }
+                  50% { transform: rotate(15deg); }
+              }
+
+              .formulario-container {
+                  position: absolute;
+                  top: 55%;
+                  left: 55%;
+                  transform: translate(0%, -50%);
+                  width: auto;
+                  max-width: 30%;
+                  height: auto;
+                  max-height: 70%;
+                  background-color: rgba(255, 255, 255, 0.5);
+                  padding: 20px;
+                  border-radius: 60px;
+                  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+                  overflow: auto;
+                  z-index: 1;
+              }
+
+              form {
+                  background: rgba(255,255,255,0);
+                  padding: 2em;
+                  border-radius: 60px;
+                  border-left: 1px solid rgba(255,255,255,0);
+                  border-top: 1px solid rgba(255,255,255,0);
+                  backdrop-filter: blur(1px);
+                  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0);
+                  text-align: left;
+                  position: relative;
+                  transition: all 0.2s ease-in-out;
+              }
+
+              form input, form select, form textarea {
+                  background: transparent;
+                  width: 200px;
+                  padding: 1em;
+                  margin-bottom: 1.5em;
+                  border: none;
+                  border-left: 1px solid rgba(255,255,255,0.5);
+                  border-top: 1px solid rgba(255,255,255,0.5);
+                  border-radius: 5000px;
+                  backdrop-filter: blur(0 px);
+                  box-shadow: 4px 4px 60px rgba(0,0,0,0.5);
+                  color: #000000;
+                  font-family: 'Montserrat', sans-serif;
+                  font-weight: 800;
+                  transition: all 0.2s ease-in-out;
+                  text-shadow: 2px 2px 4px rgba(0,0,0,0);
+              }
+
+              form input:hover, form select:hover, form textarea:hover {
+                  background: rgba(255,255,255,0.5);
+                  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.3);
+              }
+
+              .cta-button {
+                  position: fixed;
+                  left: 58%;
+                  bottom: -50px;
+                  transform: translateX(-50%) scale(0.5);
+                  z-index: 9999;
+                  background-image: url('static/fabletra.png');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  border: none;
+                  cursor: pointer;
+                  animation: pulsar 1.5s infinite;
+                  background-color: transparent;
+                  width: 548px;
+                  height: 170px;
+              }
+
+              @keyframes pulsar {
+                  0% { transform: scale(0.5); }
+                  50% { transform: scale(0.6); }
+                  100% { transform: scale(0.5); }
+              }
+    </style>
+  </head>
+  <body>
+    <div class="robot-animation-container">
+      <div class="robot-base"></div>
+
+      <div class="robot-arm"></div>
+    </div>
+
+    <div class="formulario-container">
+      <form id="songForm">
+        <label class="required-field" for="email"
+          >Tu correo electr&oacute;nico:</label
+        ><br />
+        <input id="email" name="email" required="" type="email" /><br />
+        <label class="required-field" for="nombre"
+          >&iquest;Cu&aacute;l es el nombre de la persona a la que vas a regalar
+          la canci&oacute;n?</label
+        ><br />
+        <input id="nombre" name="nombre" required="" type="text" /><br />
+        <label for="apodo"
+          >&iquest;La persona a la que va dirigida la canci&oacute;n tiene
+          alg&uacute;n apodo o nombre especial que te gustar&iacute;a que se
+          mencione en la canci&oacute;n?</label
+        ><br />
+        <input id="apodo" name="apodo" type="text" /><br />
+        <label class="required-field" for="mencion"
+          >&iquest;Deseas que el nombre y/o el apodo de la persona aparezcan en
+          la canci&oacute;n?</label
+        ><br />
+        <select id="mencion" name="mencion" required="">
+          <option value="Nombre">Nombre</option>
+          <option value="Apodo">Apodo</option>
+          <option value="Ambos">Ambos</option>
+          <option value="Ninguno">Ninguno</option></select
+        ><br />
+        <label class="required-field" for="relacion"
+          >&iquest;Qui&eacute;n eres t&uacute; en relaci&oacute;n con la persona
+          a la que se le regala la canci&oacute;n?</label
+        ><br />
+        <select
+          id="relacion"
+          name="relacion"
+          onchange="showInputField('relacion', 'relacionOtro')"
+          required=""
+        >
+          <option value="esposo">Esposo/a</option>
+          <option value="novio">Novio/a</option>
+          <option value="amigo">Amigo/a</option>
+          <option value="hermano">Hermano/a</option>
+          <option value="padre">Padre/Madre</option>
+          <option value="hijo">Hijo/a</option>
+          <option value="otro">Otro (especifique)</option></select
+        ><br />
+        <input
+          id="relacionOtro"
+          name="relacionOtro"
+          style="display: none"
+          type="text"
+        /><br />
+        <label class="required-field" for="motivo"
+          >&iquest;Cu&aacute;l es el motivo especial para regalar esta
+          canci&oacute;n?</label
+        ><br />
+        <select
+          id="motivo"
+          name="motivo"
+          onchange="showInputField('motivo', 'motivoOtro')"
+          required=""
+        >
+          <option value="cumpleanos">Cumplea&ntilde;os</option>
+          <option value="aniversario">Aniversario</option>
+          <option value="graduacion">Graduaci&oacute;n</option>
+          <option value="matrimonio">Matrimonio</option>
+          <option value="nacimiento">Nacimiento de un beb&eacute;</option>
+          <option value="otro">Otro (especifique)</option></select
+        ><br />
+        <input
+          id="motivoOtro"
+          name="motivoOtro"
+          style="display: none"
+          type="text"
+        /><br />
+        <label class="required-field" for="emociones"
+          >&iquest;Qu&eacute; emociones te gustar&iacute;a que la canci&oacute;n
+          transmita principalmente?</label
+        ><br />
+        <select
+          id="emociones"
+          name="emociones"
+          onchange="showInputField('emociones', 'emocionesOtro')"
+          required=""
+        >
+          <option value="amor">Amor</option>
+          <option value="alegria">Alegr&iacute;a</option>
+          <option value="nostalgia">Nostalgia</option>
+          <option value="esperanza">Esperanza</option>
+          <option value="consuelo">Consuelo</option>
+          <option value="otro">Otro (especifique)</option></select
+        ><br />
+        <input
+          id="emocionesOtro"
+          name="emocionesOtro"
+          style="display: none"
+          type="text"
+        /><br />
+        <label for="mensaje"
+          >Por favor, proporciona un mensaje o historia personal que te
+          gustar&iacute;a que se refleje en la canci&oacute;n.</label
+        ><br />
+        <textarea id="mensaje" name="mensaje"></textarea><br />
+        <label for="frase"
+          >&iquest;Hay alguna frase o cita especial que te gustar&iacute;a que
+          se incluya en la canci&oacute;n?</label
+        ><br />
+        <select
+          id="frase"
+          name="frase"
+          onchange="showInputField('frase', 'fraseOtro')"
+        >
+          <option value="amor1">
+            &quot;El amor es la &uacute;nica cosa que crece cuando se
+            comparte.&quot; - Antoine de Saint-Exup&eacute;ry (para esposo/a,
+            novio/a)
+          </option>
+          <option value="amistad1">
+            &quot;La amistad es un alma que habita en dos cuerpos; un
+            coraz&oacute;n que habita en dos almas.&quot; - Arist&oacute;teles
+            (para amigo/a)
+          </option>
+          <option value="familia1">
+            &quot;La familia es donde la vida comienza y el amor nunca
+            termina.&quot; - Autor desconocido (para hermano/a, padre/madre,
+            hijo/a)
+          </option>
+          <option value="otro">Otro (especifique)</option></select
+        ><br />
+        <input
+          id="fraseOtro"
+          name="fraseOtro"
+          style="display: none"
+          type="text"
+        /><br />
+        <label class="required-field" for="fecha"
+          >&iquest;En qu&eacute; fecha planeas entregar la
+          canci&oacute;n?</label
+        ><br />
+        <input id="fecha" min="" name="fecha" required="" type="date" />
+      </form>
+    </div>
+    <!-- Botón fuera del contenedor del formulario -->
+
+    <p>
+      <input
+        class="cta-button"
+        id="submitBtn"
+        onclick="validateForm()"
+        type="button"
+        value=""
+      />
+    </p>
+
+    <p id="promptOutput"></p>
+    <script>
+      // Mapeo de números a nombres de bases musicales
+      const trackNames = {
+        1: "Balada",
+        2: "Bachata",
+        3: "Rock",
+        4: "Folk",
+        5: "Pop",
+      };
+
+      function validateForm() {
+        let isValid = true;
+        let missingFields = [];
+
+        // Lista de campos requeridos con sus nombres para mostrar en mensajes
+        const requiredFields = [
+          { id: "nombre", name: "Nombre completo" },
+          { id: "mencion", name: "Mención en la canción" },
+          { id: "relacion", name: "Relación con la persona" },
+          { id: "motivo", name: "Motivo para regalar la canción" },
+          { id: "emociones", name: "Emociones a transmitir" },
+          { id: "email", name: "Correo electrónico" },
+          { id: "fecha", name: "Fecha de entrega" },
+        ];
+
+        requiredFields.forEach((field) => {
+          const input = document.getElementById(field.id);
+          if (!input.value) {
+            isValid = false;
+            missingFields.push(field.name);
+          }
+        });
+
+        if (!isValid) {
+          alert(
+            "Por favor completa los siguientes campos: " +
+              missingFields.join(", ")
+          );
+          return;
+        }
+
+        handleFormSubmit();
+      }
+
+      // Función para calcular 3 días hábiles a partir de hoy
+      function calculateMinDate() {
+        const today = new Date();
+        let daysAdded = 0;
+
+        while (daysAdded < 3) {
+          // Añadir un día
+          today.setDate(today.getDate() + 1);
+
+          // Verificar si el día actual no es sábado (6) o domingo (0)
+          if (today.getDay() !== 0 && today.getDay() !== 6) {
+            daysAdded++;
+          }
+        }
+
+        // Formatear la fecha en formato 'aaaa-mm-dd' para el atributo min
+        return today.toISOString().split("T")[0];
+      }
+
+      // Establecer la fecha mínima en el campo de fecha del formulario
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateField = document.getElementById("fecha");
+        dateField.setAttribute("min", calculateMinDate());
+      });
+
+      function handleFormSubmit() {
+        const formData = new FormData(document.getElementById("songForm"));
+        const selectedTrackNumber = getCookie("selectedTrack");
+        const selectedTrackName =
+          trackNames[selectedTrackNumber] || "Base no seleccionada";
+
+        // Obteniendo la frase seleccionada
+        const fraseSelect = document.getElementById("frase");
+        const fraseSeleccionada =
+          fraseSelect.options[fraseSelect.selectedIndex].text;
+
+        const prompt = `Por favor, escribe una canción para ${formData.get(
+          "nombre"
+        )}, conocido/a como ${formData.get(
+          "apodo"
+        )}, que transmita ${formData.get(
+          "emociones"
+        )}. La canción es un regalo de ${formData.get(
+          "relacion"
+        )} para celebrar ${formData.get(
+          "motivo"
+        )}. El mensaje que se quiere transmitir es: "${formData.get(
+          "mensaje"
+        )}". Incluye la frase: "${fraseSeleccionada}". La base musical seleccionada es: "${selectedTrackName}". La canción será entregada el: "${formData.get(
+          "fecha"
+        )}".`;
+        document.getElementById("promptOutput").innerText = prompt;
+
+        // Datos para enviar por correo electrónico
+        const email = formData.get("email");
+        const emailData = {
+          subject: "Solicitud de Canción",
+          body: prompt,
+          recipient: email, // El correo del cliente
+        };
+
+        // Envío del correo
+        console.log("Sending email data:", emailData);
+        fetch("/send_email", {
+          // Reemplaza con la URL de tu servidor Flask
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(emailData),
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            alert("Correo enviado con éxito.");
+            console.log(data);
+            // Redireccionar a Plan.html después de enviar el correo
+            //window.location.href = 'Plan.html';
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Error al enviar el correo.");
+          });
+      }
+
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      function showInputField(selectId, inputId) {
+        const select = document.getElementById(selectId);
+        const input = document.getElementById(inputId);
+        input.style.display = select.value === "otro" ? "" : "none";
+      }
+    </script>
+  </body>
+</html>

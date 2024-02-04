@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página No Encontrada</title>
+    <!-- Favicons -->
+    <link rel="icon" href="static/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="static/favicon-32x32.png" sizes="32x32" type="image/png">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-image: url('static/404.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .btn-home {
+            position: absolute;
+            bottom: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url('static/volver_inicio.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 240px;
+            height: 240px;
+            border: none;
+            cursor: pointer;
+            animation: pulsar 1.5s infinite; /* Aplica la animación pulsar */
+        }
+
+        @keyframes pulsar {
+            0% {
+                transform: scale(1.0) translateX(-50%);
+            }
+            50% {
+                transform: scale(1.1) translateX(-50%);
+            }
+            100% {
+                transform: scale(1.0) translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="btn-home"></a>
+</body>
+</html>

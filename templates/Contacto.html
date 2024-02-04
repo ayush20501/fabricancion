@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto | FabriCanción</title>
+    <style>
+        .navbar {
+            background-color: #FFD700;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .carousel {
+            width: 100%;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="submit"] {
+            background-color: #FFD700;
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="bienvenida.html">Bienvenida</a>
+        <a href="formulario.html">Formulario</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="pago.html">Pago</a>
+        <a href="portafolio.html">Portafolio</a>
+    </div>
+
+    <div class="carousel">
+        <img src="imagen1.jpg" alt="Imagen 1">
+        <img src="imagen2.jpg" alt="Imagen 2">
+        <img src="imagen3.jpg" alt="Imagen 3">
+    </div>
+
+    <div class="cta-container">
+        <form action="/submit_form" method="post">
+            <h2>Contacto</h2>
+
+            <label for="name">Nombre:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="message">Mensaje:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+</body>
+</html>

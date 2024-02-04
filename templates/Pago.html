@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pago | Fábrica de Música</title>
+    <title>Pago | Fábrica de Música</title>
+    <style>
+        .navbar {
+            background-color: #FFD700;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .carousel {
+            width: 100%;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="submit"] {
+            background-color: #FFD700;
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="bienvenida.html">Bienvenida</a>
+        <a href="formulario.html">Formulario</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="pago.html">Pago</a>
+        <a href="portafolio.html">Portafolio</a>
+    </div>
+
+    <div class="carousel">
+        <img src="imagen1.jpg" alt="Imagen 1">
+        <img src="imagen2.jpg" alt="Imagen 2">
+        <img src="imagen3.jpg" alt="Imagen 3">
+    </div>
+
+    <div class="cta-container">
+        <form id="payment-form">
+            <h2>Pago</h2>
+            <label for="nombre">Nombre en la tarjeta</label><br>
+            <input type="text" id="nombre" name="nombre"><br>
+
+            <label for="cardnumber">Número de tarjeta</label><br>
+            <input type="text" id="cardnumber" name="cardnumber" maxlength="16" minlength="16"><br>
+
+            <label for="expdate">Fecha de expiración</label><br>
+            <input type="text" id="expdate" name="expdate" placeholder="MM/YY"><br>
+
+            <label for="cvv">CVV</label><br>
+            <input type="text" id="cvv" name="cvv"
+            <input type="text" id="cvv" name="cvv" maxlength="3" minlength="3"><br>
+
+            <label for="cardtype">Tipo de tarjeta</label><br>
+            <select id="cardtype" name="cardtype">
+                <option value="visa">Visa</option>
+                <option value="mastercard">MasterCard</option>
+                <option value="amex">American Express</option>
+                <!-- Añade más opciones según sea necesario -->
+            </select>
+
+            <input type="submit" value="Realizar pago">
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

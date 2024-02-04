@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Selecciona Tu Base</title>
+	<link href="static/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+	<link href="static/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+	<style type="text/css">/* Estilos existentes */
+
+        .main-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    margin-top: -400px; /* Ajusta esto para mover verticalmente */
+    transform: scale(1.1); /* Ajusta la escala según sea necesario */
+    transform-origin: center; /* Esto asegura que la escala se aplique desde el centro */
+}
+
+
+        /* Estilos para el reproductor de audio y ondas de audio de WaveSurfer */
+        audio, #waveform1, #waveform2, #waveform3, #waveform4, #waveform5 {
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+
+        /* Estilos para las casillas de verificación */
+        .track-select {
+            margin-left:0px;
+        }
+
+        /* Grid Layout para player-container */
+        .player-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .track-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 25px 20px;
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 768px) {
+            .player-container {
+                grid-template-columns: 1fr;
+            }
+
+            .track-container {
+                width: 90%;
+            }
+        }
+
+        /* Ajustes para Waveforms */
+        #waveform1, #waveform2, #waveform3, #waveform4, #waveform5 {
+            width: 100%;
+            height: 160px;
+            margin-right: 20px;
+        }
+
+        /* Estilos para el cuerpo y el botón de continuar */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('static/fondo-bases_m.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #submit {
+            position: absolute;
+            width: 70vw;
+            height: 20vh;
+            background-image: url('static/ELIJE_BASE.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+            background-color: transparent;
+            transform: scale(0.8);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+            top: 1050px;
+            left: 200px;
+        }
+
+        #submit:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilos para los nombres de las pistas */
+        .track-name {
+            font-family: 'Montserrat', sans-serif;
+font-weight: bold;
+text-transform: uppercase;
+font-size: 30px;
+margin-right: 18px;
+color: #FFFFFF;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+    /* Estilos adicionales para las casillas de verificación */
+    .track-select {
+        width: 60px;
+        height: 60px;
+        margin-left: 0px;
+    }
+	</style>
+</head>
+<body>
+<div class="main-container">
+<div class="player-container"><!-- Track 1: Balada -->
+<div class="track-container"><label class="track-name" for="track1-checkbox">Balada</label>
+<audio controls="" id="audio1"></audio>
+
+<div id="waveform1"></div>
+<input class="track-select" id="track1-checkbox" name="track1" onclick="selectTrack(1);" type="checkbox" /></div>
+<!-- Track 2: Bachata -->
+
+<div class="track-container"><label class="track-name" for="track2-checkbox">Bachata</label>
+
+<audio controls="" id="audio2"></audio>
+
+<div id="waveform2"></div>
+<input class="track-select" id="track2-checkbox" name="track2" onclick="selectTrack(2);" type="checkbox" /></div>
+<!-- Track 3: Rock -->
+
+<div class="track-container"><label class="track-name" for="track3-checkbox">Rock</label>
+
+<audio controls="" id="audio3"></audio>
+
+<div id="waveform3"></div>
+<input class="track-select" id="track3-checkbox" name="track3" onclick="selectTrack(3);" type="checkbox" /></div>
+<!-- Track 4: Folk -->
+
+<div class="track-container"><label class="track-name" for="track4-checkbox">Folk</label>
+
+<audio controls="" id="audio4"></audio>
+
+<div id="waveform4"></div>
+<input class="track-select" id="track4-checkbox" name="track4" onclick="selectTrack(4);" type="checkbox" /></div>
+<!-- Track 5: Pop -->
+
+<div class="track-container"><label class="track-name" for="track5-checkbox">Pop</label>
+
+<audio controls="" id="audio5"></audio>
+
+<div id="waveform5"></div>
+<input class="track-select" id="track5-checkbox" name="track5" onclick="selectTrack(5);" type="checkbox" /></div>
+</div>
+<button id="submit" onclick="goToNextPage()"></button></div>
+<!-- CDN de wavesurfer.js --><script src="https://unpkg.com/wavesurfer.js"></script><script>
+    let selectedTrack = null;
+    let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+       function loadWaveSurfer(audioId, waveformId, filePath) {
+        var wavesurfer = WaveSurfer.create({
+            container: `#${waveformId}`,
+            waveColor: '#4F4A85',
+            progressColor: '#383351',
+            cursorWidth: 0,
+            audioContext: audioContext,
+            height: 100
+        });
+
+
+        wavesurfer.load(filePath);
+
+        document.getElementById(audioId).addEventListener('play', function() {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume().then(() => {
+                    wavesurfer.play();
+                });
+            } else {
+                wavesurfer.play();
+            }
+        });
+        document.getElementById(audioId).addEventListener('pause', function() {
+            wavesurfer.pause();
+        });
+
+        document.getElementById(audioId).src = filePath;
+}
+    function selectTrack(trackNumber) {
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById('track' + i + '-checkbox').checked = false;
+    }
+    document.getElementById('track' + trackNumber + '-checkbox').checked = true;
+    selectedTrack = trackNumber;
+
+    // Guardar la selección en una cookie
+    document.cookie = "selectedTrack=" + trackNumber + ";path=/";
+}
+
+function goToNextPage() {
+    if (selectedTrack) {
+        // Aquí podrías también verificar la cookie si es necesario
+        window.location.href = 'formulario.html';
+    } else {
+        alert("Por favor, selecciona una pista antes de continuar.");
+    }
+}
+
+// Funciones adicionales para manejar cookies
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+    // Carga inicial de los tracks
+    loadWaveSurfer('audio1', 'waveform1', '/bases/BALADA.mp3');
+    loadWaveSurfer('audio2', 'waveform2', '/bases/BACHATA.mp3');
+    loadWaveSurfer('audio3', 'waveform3', '/bases/ROCK.mp3');
+    loadWaveSurfer('audio4', 'waveform4', '/bases/FOLK.mp3');
+    loadWaveSurfer('audio5', 'waveform5', '/bases/POP.mp3');
+</script></body>
+</html>

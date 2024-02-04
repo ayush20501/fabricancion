@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido a FabriCanción</title>
+    <link rel="icon" href="imagenes/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fuente/Montserrat-VariableFont_wght.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fuente/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        body {
+            background-image: url('imagenes/fondo-inicio.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: transparent;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 15px;
+            width: 100%;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 0 30px;
+        }
+
+        /* Estilos para el cuadro blanco */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            position: fixed;
+            top: 13%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            padding-bottom: 20px;
+            z-index: 2;
+        }
+
+        .logo {
+            width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Define la animación */
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Aplica la animación al botón */
+        .cta-button {
+            display: inline-block;
+            width: 40%;
+            padding: 20px;
+            text-align: center;
+            background-color: #FF4500;
+            color: white;
+            font-size: 24px;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            border-radius: 10px;
+            animation: pulsar 1s infinite;
+        }
+
+        .cta-button:hover {
+            background-color: #FF6347;
+        }
+
+        /* Estilos para la animación del logo */
+        #logo {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        #engranaje {
+            position: absolute;
+            width: 300px;
+            height: 310px;
+            left: -262px;
+            top: 250px;
+            opacity: 1;
+        }
+
+        #logo-fijo {
+            position: absolute;
+            width: 200px;
+            height: 387.8px;
+        }
+
+        @keyframes girar {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+
+        .girar {
+            animation: girar 10s cubic-bezier(1, 1, 1, 1) infinite;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var engranaje = document.getElementById('engranaje');
+
+            // Para iniciar la animación
+            function iniciarAnimacion() {
+                engranaje.classList.add('girar');
+            }
+
+            // Probamos la animación
+            iniciarAnimacion();
+        }
+    </script>
+</head>
+<body>
+    <!-- Animación del logo -->
+    <div id="logo">
+        <img id="engranaje" src="imagenes/engranaje.png" alt="Engranaje">
+        <img id="logo-fijo" src="imagenes/logo-fijo.png" alt="Parte fija del logo">
+    </div>
+
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <a href="bienvenida.html">INICIO</a>
+        <a href="portafolio.html">PORTAFOLIO</a>
+        <a href="FAQ.html">PREGUNTAS FRECUENTES</a>
+        <a href="contacto.html">CONTÁCTANOS</a>
+    </div>
+
+    <!-- Cuadro blanco con botón -->
+    <div class="cta-container">
+        <img src="imagenes/logo.png" alt="Logo" class="logo">
+        <a href="formulario.html" class="cta-button">QUIERO FABRICAR UNA CANCIÓN</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</Mis disculpas por el malentendido anterior. Entiendo ahora que quieres mantener la relación entre las partes del logo. Para hacer esto, podemos mantener el logo como una unidad y cambiar su posición como un todo.
+
+Aquí está tu código con la animación del logo integrada correctamente:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido a FabriCanción</title>
+    <link rel="icon" href="imagenes/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fuente/Montserrat-VariableFont_wght.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fuente/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        body {
+            background-image: url('imagenes/fondo-inicio.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: transparent;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 15px;
+            width: 100%;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 0 30px;
+        }
+
+        /* Estilos para el cuadro blanco */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            position: fixed;
+            top: 13%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            padding-bottom: 20px;
+            z-index: 2;
+        }
+
+        .logo {
+            width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Define la animación */
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Aplica la animación al botón */
+        .cta-button {
+            display: inline-block;
+            width: 40%;
+            padding: 20px;
+            text-align: center;
+            background-color: #FF4500;
+            color: white;
+            font-size: 24px;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            border-radius: 10px;
+            animation: pulsar 1s infinite;
+        }
+
+        .cta-button:hover {
+            background-color: #FF6347;
+        }
+
+        /* Estilos para la animación del logo */
+        #logo {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        #engranaje {
+            position: absolute;
+            width: 300px;
+            height: 310px;
+            left: -262px;
+            top: 250px;
+            opacity: 1;
+        }
+
+        #logo-fijo {
+            position: absolute;
+            width: 200px;
+            height: 387.8px;
+        }
+
+        @keyframes girar {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
+
+        .girar {
+            animation: girar 10s cubic-bezier(1, 1, 1, 1) infinite;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var engranaje = document.getElementById('engranaje');
+
+            // Para iniciar la animación
+            function iniciarAnimacion() {
+                engranaje.classList.add('girar');
+            }
+
+            // Probamos la animación
+            iniciarAnimacion();
+        }
+    </script>
+</head>
+<body>
+    <!-- Animación del logo -->
+    <div id="logo">
+        <img id="engranaje" src="imagenes/engranaje.png" alt="Engranaje">
+        <img id="logo-fijo" src="imagenes/logo-fijo.png" alt="Parte fija del logo">
+    </div>
+
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <a href="bienvenida.html">INICIO</a>
+        <a href="portafolio.html">PORTAFOLIO</a>
+        <a href="FAQ.html">PREGUNTAS FRECUENTES</a>
+        <a href="contacto.html">CONTÁCTANOS</a>
+    </div>
+
+    <!-- Cuadro blanco con botón -->
+    <div class="cta-container">
+        <img src="imagenes/logo.png" alt="Logo" class="logo">
+        <a href="formulario.html" class="cta-button">QUIERO FABRICAR UNA CANCIÓN</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

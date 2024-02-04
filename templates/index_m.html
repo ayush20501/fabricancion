@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a FabriCanción - Versión Móvil</title>
+    <link rel="icon" href="staitc/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="staitc/favicon-32x32.png" sizes="32x32" type="image/png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            background-image: url('staitc/fondo-inicio_m.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+           background-size: 100% 280vh;  /* Ajusta este valor si es necesario para cubrir todo el contenido */
+            color: white;
+            font-weight: bold;
+            height: auto; /* Se ajusta según el contenido */
+        }
+
+        /* Eliminamos .container y posicionamiento absoluto para los botones */
+
+        .cta-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: block;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 10px;
+            background-image: url('staitc/boton-inicio.png');
+        }
+
+        /* Clases para ajustar la posición y tamaño de cada botón */
+        .btn1, .btn2, .btn3 {
+            position: absolute;
+            width: 50%; /* Ajuste de tamaño */
+            height: 08vh; /* Ajuste de tamaño */
+        }
+
+        .btn1 {
+            top: 54%; /* Posición vertical */
+            left: 23%; /* Posición horizontal */
+        }
+
+        .btn2 {
+            top: 188%; /* Posición vertical */
+            left: 09%; /* Posición horizontal */
+        }
+
+        .btn3 {
+            top: 285%; /* Posición vertical */
+            left: 45%; /* Posición horizontal */
+        }
+
+        /* Sección de contenido adicional para demostrar el scroll */
+        .content-section {
+            height: 280vh; /* Altura total del contenido para demostrar el scroll */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-section">
+    <!-- Botones como parte del flujo de contenido, ahora con clases específicas para aplicar estilos únicos -->
+    <a href="Bases.html" class="cta-button btn1"></a> <!-- Botón 1 -->
+    <a href="Bases.html" class="cta-button btn2"></a> <!-- Botón 2 -->
+    <a href="Bases.html" class="cta-button btn3"></a> <!-- Botón 3 -->
+</div>
+</body>
+</html>

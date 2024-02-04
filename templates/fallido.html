@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pago Fallido</title>
+    <link href="static/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="static/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('static/fallido.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .cta-button {
+            /* Estilos para los botones */
+        .cta-button {
+            position: absolute;
+            width: 20vw;
+            height: 25vh;
+            background-repeat: no-repeat;
+            background-size: contain; /* Cambiado de 'cover' a 'contain' */
+            background-position: center; /* Centra la imagen de fondo */
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            animation: pulsar 1.8s infinite; /* Cambia la duración (1s) para ajustar la velocidad de la 
+            animación */
+            background-color: transparent; /* Hace el fondo del botón transparente */
+            transform: scale(2.0); /* Ajusta la escala inicial del botón */
+            transform-origin: center; /* Ajusta el punto de origen de la transformación */
+
+       /* Define la animación */
+        @keyframes pulsar {
+            0% {
+                transform: scale(1.0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1.0);
+        }
+        /* Aquí puedes agregar estilos adicionales específicos para esta página */
+    </style>
+</head>
+<body>
+    <button class="cta-button" style="background-image: url('static/alinicio.png');" onclick="window.location.href='index.html';"></button>
+    <button class="cta-button" style="background-image: url('static/denuevo.png');" onclick="window.location.href='plan.html';"></button>
+    <!-- Aquí puedes ajustar la posición y el tamaño de los botones según sea necesario -->
+</body>
+</html>
